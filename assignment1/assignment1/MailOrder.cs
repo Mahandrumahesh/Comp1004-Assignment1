@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,11 @@ namespace assignment1
     {
         private double _phours;
         private double _totalsalesamount;
+        private string _EmployeeName;
+        private string _employeeid;
+        private string _hoursWorked;
+        private string _totalSales;
+        private double _salesBonus;
 
         public MailOrder()
         {
@@ -59,7 +65,7 @@ namespace assignment1
         {
             RadioButton radio = sender as RadioButton;
 
-            if(radio.Tag.ToString() == "french")
+            if (radio.Tag.ToString() == "french")
             {
                 Calculate.Text = "Calculer";
                 print.Text = "Impression";
@@ -71,7 +77,7 @@ namespace assignment1
                 salesBonus.Text = "     Bonus de vente : ";
                 languages.Text = "Langues";
             }
-            else if(radio.Tag.ToString() == "spanish")
+            else if (radio.Tag.ToString() == "spanish")
             {
                 Calculate.Text = "Calcular";
                 print.Text = "Impresión";
@@ -104,49 +110,69 @@ namespace assignment1
         /// <param name="e"></param>
         private void salesCalculation(object sender, EventArgs e)
         {
-            this.EmployeeName = EmployeeName.Text;
 
-            this.employeeId = employeeId.Text;
 
-            this.hoursWorked = hoursWorked.Text;
 
-            this.totalSales = salesBonus.Text;
 
-            //Below is the message box place your error message inside string.
-            MessageBox.Show("Display your error here");
+
+
+
+            //instance variables
+            this._EmployeeName = textBox1.Text;
+
+            this._employeeid = textBox2.Text;
+
+            this._hoursWorked = textBox3.Text;
+
+            this._totalSales = textBox4.Text;
+
+
 
             Button button = sender as Button;
             //convert string values to the Doubles
+            try
+            {
+                if (Isnegative(this._hoursWorked))
+                {
 
-            if (Isnumberandnegative(this.hoursWorked))
+                    this._phours = (Convert.ToDouble(this._hoursWorked)) / 160;
+
+                }
+
+                if (Convert.ToDouble(this._hoursWorked) > 160)
+                {
+                    this._salesBonus = '0';
+                    textBox5.Text = "0";
+
+                }
+                if (Isnegative(this._totalSales))
+
+                {
+
+                    this._totalsalesamount = (Convert.ToDouble(this._totalSales)) * (0.02);
+
+                }
+
+                this._salesBonus = (this._phours) * (this._totalsalesamount);
+                textBox4.Text = "$" + Convert.ToString(this._totalSales);
+                textBox5.Text = Convert.ToString(this._salesBonus);
+            }
+            catch (Exception exception)
             {
 
-                this._phours = (Convert.ToDouble(this.hoursWorked)) / 160;
-
+                //Below is the message box place your error message inside string.
+                MessageBox.Show("Invalid Data Entered", "InputError");
+                Debug.WriteLine(exception.Message);
+                
+            
             }
-
-            if (Isnumberandnegative(this.totalSales))
-
-            {
-
-                this._totalsalesamount = (Convert.ToDouble(this.totalSales)) * (0.02);
-
-            }
-
-            this.salesBonus = (this._phours) * (this._totalsalesamount);
-
-            salesBonus.Text = Convert.ToString(this.salesBonus);
 
         }
 
-        private bool Isnumberandnegative(Label totalSales)
-        {
-            throw new NotImplementedException();
-        }
 
         private
         bool
-        Isnumberandnegative(string
+        Isnegative(string
         hoursandsales)
 
         {
@@ -184,7 +210,9 @@ namespace assignment1
 
             }
 
-
+            
 
         }
+
     }
+}
