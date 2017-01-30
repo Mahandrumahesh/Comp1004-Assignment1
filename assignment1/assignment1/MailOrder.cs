@@ -22,7 +22,7 @@ namespace assignment1
     public partial class MailOrder : Form
     {
         //instance variables
-        private double _phours;
+        private double _percentageHours;
         private double _totalsalesamount;
         private string _EmployeeName;
         private string _employeeid;
@@ -141,7 +141,7 @@ namespace assignment1
                 if (Isnegative(textBox3.Text) && (Convert.ToDouble(textBox3.Text)) <= 160)
                 {
 
-                    this._phours = (Convert.ToDouble(textBox3.Text)) / 160;
+                    this._percentageHours = (Convert.ToDouble(textBox3.Text)) / 160;
                 }
                 else
                 {
@@ -154,7 +154,7 @@ namespace assignment1
                     this._totalsalesamount = (Convert.ToDouble(this._totalSales)) * (0.02);
 
                 }
-                this._salesBonus = (this._phours) * (this._totalsalesamount);
+                this._salesBonus = (this._percentageHours) * (this._totalsalesamount);
                 textBox4.Text = "$" + Convert.ToString(this._totalSales);
                 textBox5.Text = Convert.ToString(this._salesBonus);
             }
@@ -165,11 +165,11 @@ namespace assignment1
                 MessageBox.Show("Invalid Data Entered", "InputError");
                 Debug.WriteLine(exception.Message);
             }
-            if (this._phours != 0 && this._totalsalesamount != 0)
+            if (this._percentageHours != 0 && this._totalsalesamount != 0)
             {
-                this._salesBonus = (this._phours) * (this._totalsalesamount);
+                this._salesBonus = (this._percentageHours) * (this._totalsalesamount);
                 textBox5.Text = Convert.ToString(this._salesBonus);
-                this._phours = 0;
+                this._percentageHours = 0;
                 this._totalsalesamount = 0;
                 this._salesBonus = 0;
             }
@@ -181,6 +181,11 @@ namespace assignment1
 
 
         }
+        /// <summary>
+        /// this function will display the messages
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="val"></param>
         private void errorfunction(string message, string val)
         {
             MessageBox.Show(message, val);
