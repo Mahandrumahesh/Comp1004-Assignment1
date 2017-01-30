@@ -30,6 +30,7 @@ namespace assignment1
         private string _totalSales;
         private double _salesBonus;
 
+        //the mailOrder constructor
         public MailOrder()
         {
               InitializeComponent();
@@ -74,7 +75,7 @@ namespace assignment1
         private void Languagetranslate(object sender, EventArgs e)
         {
             RadioButton radio = sender as RadioButton;
-
+            //using if else statement to change the language of the labels and for the buttons
             if (radio.Tag.ToString() == "french")
             {
                 Calculate.Text = "Calculer";
@@ -115,7 +116,7 @@ namespace assignment1
         }
 
         /// <summary>
-        /// sales calculate event handler
+        /// sales calculation event handler
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -230,6 +231,13 @@ namespace assignment1
 
         }
 
+        /// <summary>
+        /// clear Button Event Handler
+        /// clears all the employee information EXCEPT the total monthly sales
+        /// and sets the sales bonus back to default
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void clear_Click(object sender, EventArgs e)
         {
             
@@ -237,10 +245,6 @@ namespace assignment1
             textBox2.Text = "";
             textBox3.Text = "0";
             textBox5.Text = "$0.00";
-        
-          
-
-       
 
         }
     /// <summary>
