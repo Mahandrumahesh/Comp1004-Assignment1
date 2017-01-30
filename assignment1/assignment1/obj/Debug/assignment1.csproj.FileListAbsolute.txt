@@ -7,3 +7,12 @@ c:\users\hpuser\documents\visual studio 2015\Projects\assignment1\assignment1\ob
 c:\users\hpuser\documents\visual studio 2015\Projects\assignment1\assignment1\obj\Debug\assignment1.exe
 c:\users\hpuser\documents\visual studio 2015\Projects\assignment1\assignment1\obj\Debug\assignment1.pdb
 C:\Users\hpuser\documents\visual studio 2015\Projects\assignment1\assignment1\obj\Debug\assignment1.MailOrder.resources
+C:\Users\hpuser\assignment1\assignment1\assignment1\bin\Debug\assignment1.exe.config
+C:\Users\hpuser\assignment1\assignment1\assignment1\obj\Debug\assignment1.exe
+C:\Users\hpuser\assignment1\assignment1\assignment1\obj\Debug\assignment1.pdb
+C:\Users\hpuser\assignment1\assignment1\assignment1\bin\Debug\assignment1.exe
+C:\Users\hpuser\assignment1\assignment1\assignment1\bin\Debug\assignment1.pdb
+C:\Users\hpuser\assignment1\assignment1\assignment1\obj\Debug\assignment1.csprojResolveAssemblyReference.cache
+C:\Users\hpuser\assignment1\assignment1\assignment1\obj\Debug\assignment1.MailOrder.resources
+C:\Users\hpuser\assignment1\assignment1\assignment1\obj\Debug\assignment1.Properties.Resources.resources
+C:\Users\hpuser\assignment1\assignment1\assignment1\obj\Debug\assignment1.csproj.GenerateResource.Cache

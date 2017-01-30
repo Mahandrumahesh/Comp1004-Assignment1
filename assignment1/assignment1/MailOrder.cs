@@ -8,11 +8,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+// Sharp Mail Oder - Sales Bonus	
+// Created by Mahesh mahesh
+// Student # 200330980	
+// Created on January 29th 2017	
+//
+// Simple windows form to calculate the total sales bonus per employee based on
+// the total monlthy sales for the company and the percentage of which the employee
+// in question worked.
+//
 namespace assignment1
 {
     public partial class MailOrder : Form
     {
+        //instance variables
         private double _phours;
         private double _totalsalesamount;
         private string _EmployeeName;
@@ -23,7 +32,7 @@ namespace assignment1
 
         public MailOrder()
         {
-            InitializeComponent();
+              InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -56,11 +65,12 @@ namespace assignment1
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// French, Spanish, English Radio Button Event Handler
+        /// changes all label and button text to display in french,spanish,english 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Languagetranslate(object sender, EventArgs e)
         {
             RadioButton radio = sender as RadioButton;
@@ -103,6 +113,7 @@ namespace assignment1
             }
 
         }
+
         /// <summary>
         /// sales calculate event handler
         /// </summary>
@@ -110,12 +121,6 @@ namespace assignment1
         /// <param name="e"></param>
         private void salesCalculation(object sender, EventArgs e)
         {
-
-
-
-
-
-
 
             //instance variables
             this._EmployeeName = textBox1.Text;
@@ -132,18 +137,14 @@ namespace assignment1
             //convert string values to the Doubles
             try
             {
-                if (Isnegative(this._hoursWorked))
+                if (Isnegative(textBox3.Text) && (Convert.ToDouble(textBox3.Text)) <= 160)
                 {
 
-                    this._phours = (Convert.ToDouble(this._hoursWorked)) / 160;
-
+                    this._phours = (Convert.ToDouble(textBox3.Text)) / 160;
                 }
-
-                if (Convert.ToDouble(this._hoursWorked) > 160)
+                else
                 {
-                    this._salesBonus = '0';
-                    textBox5.Text = "0";
-
+                    this.errorfunction("The Hours can only be between 1-160", "Error");
                 }
                 if (Isnegative(this._totalSales))
 
@@ -152,7 +153,6 @@ namespace assignment1
                     this._totalsalesamount = (Convert.ToDouble(this._totalSales)) * (0.02);
 
                 }
-
                 this._salesBonus = (this._phours) * (this._totalsalesamount);
                 textBox4.Text = "$" + Convert.ToString(this._totalSales);
                 textBox5.Text = Convert.ToString(this._salesBonus);
@@ -163,10 +163,26 @@ namespace assignment1
                 //Below is the message box place your error message inside string.
                 MessageBox.Show("Invalid Data Entered", "InputError");
                 Debug.WriteLine(exception.Message);
-                
-            
+            }
+            if (this._phours != 0 && this._totalsalesamount != 0)
+            {
+                this._salesBonus = (this._phours) * (this._totalsalesamount);
+                textBox5.Text = Convert.ToString(this._salesBonus);
+                this._phours = 0;
+                this._totalsalesamount = 0;
+                this._salesBonus = 0;
+            }
+            else
+            {
+                this.textBox5.Text = string.Empty;
             }
 
+
+
+        }
+        private void errorfunction(string message, string val)
+        {
+            MessageBox.Show(message, val);
         }
 
 
@@ -214,5 +230,35 @@ namespace assignment1
 
         }
 
+        private void clear_Click(object sender, EventArgs e)
+        {
+            
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "0";
+            textBox5.Text = "$0.00";
+        
+          
+
+       
+
+        }
+    /// <summary>
+    /// Print Button Event Handler
+    /// creates a message box popup to indicate the form is printing
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void print_Click(object sender, EventArgs e)
+    {
+        if (print.Text.Equals("Print"))
+            {
+                MessageBox.Show("The form has been sent to the default printer.", "Printing");
+            }
+            else
+            {
+                MessageBox.Show("Le formulaire a été envoyé à l'imprimante par défaut.", "Imprimer");
+            }
+        }
     }
 }

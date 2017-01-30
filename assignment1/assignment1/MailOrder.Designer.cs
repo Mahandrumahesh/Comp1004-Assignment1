@@ -135,7 +135,7 @@
             this.print.Tag = "print";
             this.print.Text = "Print";
             this.print.UseVisualStyleBackColor = true;
-            this.print.Click += new System.EventHandler(this.salesCalculation);
+            this.print.Click += new System.EventHandler(this.print_Click);
             // 
             // clear
             // 
@@ -147,7 +147,7 @@
             this.clear.Tag = "clear";
             this.clear.Text = "Clear";
             this.clear.UseVisualStyleBackColor = true;
-            this.clear.Click += new System.EventHandler(this.salesCalculation);
+            this.clear.Click += new System.EventHandler(this.clear_Click);
             // 
             // textBox2
             // 
@@ -262,6 +262,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.EmployeeName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "MailOrder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sales Bonus";
