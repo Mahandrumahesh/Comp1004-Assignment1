@@ -191,45 +191,39 @@ namespace assignment1
             MessageBox.Show(message, val);
         }
 
-
+        /// <summary>
+        /// use of the function statement to return the statements 
+        /// </summary>
+        /// <param name="hours"></param>
+        /// <returns></returns>
         private
         bool
         Isnegative(string
-        hoursandsales)
+        hours)
 
         {
 
             double _value;
-            if (Double.TryParse(hoursandsales, out _value))
+            if (Double.TryParse(hours, out _value))
 
             {
-
+            
                 if (_value > 0)
 
                 {
-
-                    return
-                    true;
-
+                    return true; 
                 }
 
                 else
 
                 {
-
-                    return
-                    false;
-
+                    return false;
                 }
 
             }
             else
-
             {
-
-                return
-                false;
-
+                return false;
             }
 
             
